@@ -1,14 +1,14 @@
 import { ApolloProvider } from '@apollo/client';
 import React from 'react';
 import client from './client';
-import Episodes from './components/Episodes/Episodes';
+import Episodes from './components/Pages/Episodes/Episodes';
 import Footer from './components/Footer/Footer';
 import Header from './components/Header/Header';
-import Home from './components/Home/Home';
+import Home from './components/Pages/Home/Home';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
-import Characters from './components/Characters/Characters';
-import EpisodeDetails from './components/EpisodeDetails/EpisodeDetails';
-import CharacterDetails from './components/CharacterDetails/CharacterDetails';
+import Characters from './components/Pages/Characters/Characters';
+import EpisodeDetails from './components/Pages/EpisodeDetails/EpisodeDetails';
+import CharacterDetails from './components/Pages/CharacterDetails/CharacterDetails';
 
 function App() {
   return (
@@ -22,8 +22,7 @@ function App() {
             <Route path='/characters'><Characters/></Route>
             <Route path='/'><Home/></Route>
           </Switch>
-          <Footer/>
-          
+          <Footer/> 
       </ApolloProvider>
     </Router>
   );

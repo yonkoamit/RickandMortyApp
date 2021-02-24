@@ -1,21 +1,10 @@
 import React from 'react'
 import gql from 'graphql-tag';
 import { useQuery } from '@apollo/client';
-import Character from '../../Card/Character/Character';
+import Character from '../../../Card/Character/Character';
+import {Link} from 'react-router-dom';
+import {CharacterType,CharacterQueryProps} from '../../../../types';
 
-type Iprops={
-    characterSearch:string,
-    onClickHandler(val:number):void,
-    page:number
-}
-type CharacterType={
-    __typename:string,
-    id:string,
-    name:string,
-    species:string,
-    gender:string,
-    image:string
-}
 function getCharacters(a:number,b:string){
     return gql`
     query getCharacters{
@@ -39,11 +28,11 @@ function getCharacters(a:number,b:string){
 
 
 
-function CharacterQuery({characterSearch,onClickHandler,page}:Iprops) {
+function CharacterQuery({characterSearch,onClickHandler,page}:CharacterQueryProps) {
     
     const {loading,error,data}=useQuery(getCharacters(page,characterSearch))
-    if(loading) return <div>Loading ...</div>
-    if(error) return <div>Oops! Not Found</div>
+    if(loading) return <div className='loading'>Loading ...</div>
+    if(error) return <div className='error'>Oops! Not Found</div>
     const info=data.characters.info;
     const charactersList=data.characters.results;
     
@@ -79,7 +68,9 @@ function CharacterQuery({characterSearch,onClickHandler,page}:Iprops) {
             <div className='episodeList'>
                 {
                     charactersList.map((val:CharacterType)=>(
-                        <Character key={val.id} characterItems={val}/>
+                        <Link to={`/characters/${val.id}`} key={val.id} style={{textDecoration:'none',color:'black'}}>
+                            <Character key={val.id} characterItems={val}/>
+                        </Link>
                     ))
                 }
             </div>

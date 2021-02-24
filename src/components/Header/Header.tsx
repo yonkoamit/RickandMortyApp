@@ -1,14 +1,16 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import './Header.css'
+import {AppBar, IconButton, Toolbar, Typography} from '@material-ui/core';
+import logo from '../Footer/logo.png';
 const Header = () => {
     return (
-        <div className='header'>
-            <Link to='/' style={{color:'black'}}>
-                Rick And Morty
-            </Link>
-            <hr/>
-        </div>
+        <AppBar position="relative">
+            <Toolbar style={{justifyContent:"center"}}>
+                <Link to='/' style={{color:'white'}}>
+                    <Typography variant="h5">Rick And Morty</Typography>
+                </Link>
+            </Toolbar>
+        </AppBar>
     )
 }
 

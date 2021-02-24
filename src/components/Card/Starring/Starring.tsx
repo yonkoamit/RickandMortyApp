@@ -1,9 +1,6 @@
 import './Starring.css';
-interface Iprops{
-    image:string,
-    name:string
-}
-function Starring({image,name}:Iprops){
+import {StarringpropsType} from '../../../types';
+function Starring({image,name}:StarringpropsType){
     return (
         <div className='starring'>
             <img src={image}/>

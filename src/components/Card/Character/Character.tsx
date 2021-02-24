@@ -1,15 +1,6 @@
-import React from 'react'
 import './Character.css'
-type CharacterType={
-    characterItems:{
-    __typename:string,
-    id:string,
-    name:string,
-    species:string,
-    gender:string,
-    image:string}
-}
-function Character<Object extends CharacterType>(props:Object){
+import {SingleCharacterType} from '../../../types';
+function Character<Object extends SingleCharacterType>(props:Object){
     
     const characterDetails=props.characterItems;
     return (

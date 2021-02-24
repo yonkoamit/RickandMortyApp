@@ -1,0 +1,13 @@
+.starringList{
+    display: flex;
+    flex-wrap: wrap;
+    margin:10px;
+}
+.episodeDetails{
+    margin: auto;
+    max-width: 1200px;
+}
+.episodeDetails > h1{
+    margin: 20px;
+    
+}

@@ -12,8 +12,9 @@ const Episodes = () => {
         {setPage(val);}
 
     return (
-        <div>
-            <div className='episodePanel'>
+        <>
+        <div className='episodes'>
+            <div className='episodeSearch'>
                 <h2>Episodes</h2>
                 <input type='text' placeholder='Input Episode'
                     onChange={(e)=>{
@@ -23,6 +24,8 @@ const Episodes = () => {
             </div>
             <EpisodeQuery episodeSearch={episodeSearch} onClickHandler={onClickHandler} page={page}/>
         </div>
+        <hr/>
+        </>
     )
 }
 

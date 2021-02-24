@@ -1,13 +1,16 @@
-img{
-    width:250px;
-}
 .episode{
-    width:250px;
+    width:270px;
+    height: 290px;
     display: flex;
     flex-direction: column;
     border: solid 1px wheat;
-    margin: 4px;
+    box-shadow: gray;
+    margin: 10px;
 }
+.episode img{
+    width:270px;
+}
+
 span{
     margin: 6px;
 }

@@ -1,12 +1,13 @@
 img{
-    width:250px;
+    width:270px;
 }
 .character{
-    width:250px;
+    width:270px;
+    /* height: 400px; */
     display: flex;
     flex-direction: column;
     border: solid 1px wheat;
-    margin: 4px;
+    margin: 10px;
 }
 span{
     margin: 6px;

@@ -1,0 +1,20 @@
+.characters{
+    margin: auto;
+    max-width: 1200px;
+}
+.characterSearch{
+    display: flex;
+    justify-content: space-between;
+    margin: 10px;
+}
+
+
+.characterSearch h2{
+    font-size: 30px;
+    font-family:'Dosis';
+}
+.characterSearch input{
+    height: 30px;
+    align-self: center;
+    margin-right: 15px;
+}

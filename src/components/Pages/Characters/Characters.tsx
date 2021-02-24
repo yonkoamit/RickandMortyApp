@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import CharacterQuery from './CharacterQuery/CharacterQuery';
-
+import './Characters.css'
 const Characters = () => {
     const [characterSearch,setCharacterSearch]=useState('');
     const [page,setPage]=useState(1);
@@ -9,8 +9,9 @@ const Characters = () => {
         {setPage(val);}
 
     return (
-        <div>
-            <div className='episodePanel'>
+        <>
+        <div className='characters'>
+            <div className='characterSearch'>
                 <h2>Characters</h2>
                 <input type='text' placeholder='Input Character'
                     onChange={(e)=>{
@@ -20,6 +21,8 @@ const Characters = () => {
             </div>
             <CharacterQuery characterSearch={characterSearch} onClickHandler={onClickHandler} page={page}/>
         </div>
+        <hr/>
+        </>
     )
 }
 

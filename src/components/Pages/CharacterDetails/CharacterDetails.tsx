@@ -26,8 +26,8 @@ function CharacterDetails() {
 
     const {id}=useParams<{id:string}>();
     const {loading,error,data}=useQuery(getCharacter(id));
-    if(loading) return <div>Loading</div>;
-    if(error) return <div>Oops! Some Error Occured</div>
+    if(loading) return <div className='loading'>Loading</div>;
+    if(error) return <div className='error'>Oops! Some Error Occured</div>
     return (
         <>
         <h1 className='characterHeading'>{data.character.name}</h1>
@@ -55,6 +55,7 @@ function CharacterDetails() {
                 <h5>{data.character.status}</h5>
             </div>
         </div>
+        <hr/>
         </>
     )
 }

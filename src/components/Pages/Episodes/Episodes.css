@@ -1,0 +1,22 @@
+.episodes{
+    margin: auto;
+    max-width: 1200px;
+}
+.episodeSearch{
+    display: flex;
+    justify-content: space-between;
+    margin: 10px;
+}
+.episodePanel h2{
+    margin: 0px;
+}
+.episodeSearch h2{
+    font-size: 30px;
+    font-family:'Dosis';
+}
+.episodeSearch input{
+    height: 30px;
+    align-self: center;
+    margin-right: 15px;
+}
+

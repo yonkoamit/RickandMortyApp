@@ -14,6 +14,7 @@
 }
 .characterDetails img{
     border-radius: 4px;
+    width: 250px;
 }
 .characterDetails h4{
     margin-left: 0px;

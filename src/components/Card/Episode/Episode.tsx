@@ -1,17 +1,10 @@
 import React from 'react'
 import image1 from '../../../dumbEasier.jpg';
 import image2 from '../../../episodePaper.png';
-
+import {SingleEpisodeType} from '../../../types';
 import './Episode.css';
-type EpisodeType={
-    episodeItems:
-    {id:string,
-    name:string,
-    air_date:string ,
-    episode:string ,
-    char_count:number}
-}
-function Episode<Object extends EpisodeType>(props:Object){
+
+function Episode<Object extends SingleEpisodeType>(props:Object){
     const episodeDetails=props.episodeItems;
     const episodeImage:string=(parseInt(episodeDetails.id)%2===0)? image1: image2;
 
