@@ -1,0 +1,11 @@
+.episodePanel{
+    display: flex;
+    justify-content: space-between;
+    margin: 10px;
+}
+input{
+    height: auto;
+}
+.episodePanel h2{
+    margin: 0px;
+}

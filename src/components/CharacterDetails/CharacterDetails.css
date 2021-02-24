@@ -1,0 +1,28 @@
+.characterDetails{
+    margin: auto;
+    width: 250px;
+    border: solid 1px gainsboro;
+    padding: 15px;
+}
+.characterHeading{
+    width:auto;
+    text-align: center;
+    margin: auto;
+    font-size: 50px;
+    padding: 30px;
+    
+}
+.characterDetails img{
+    border-radius: 4px;
+}
+.characterDetails h4{
+    margin-left: 0px;
+    padding-top: 10px;
+    font-weight:500;
+}
+.characterDetails > div{
+    margin: 15px;
+}
+.characterDetails h5{
+    font-weight:450;
+}

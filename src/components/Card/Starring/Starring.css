@@ -1,0 +1,13 @@
+.starring{
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    border: solid 1px wheat;
+    margin: 6px;
+}
+.starring img{
+    width:200px;
+}
+.starring h2{
+    font-weight: normal;
+}

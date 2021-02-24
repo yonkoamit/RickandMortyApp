@@ -1,0 +1,14 @@
+.footer{
+    display: flex;
+    flex-direction: row;
+}
+.footer-items{
+    flex:1 0 25%;
+    align-content: center;
+    justify-content: space-evenly;
+    margin: 0px;
+    padding: 0px;
+}
+.footer-items img{
+    height: 150px;
+}

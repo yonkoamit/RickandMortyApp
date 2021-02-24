@@ -1,0 +1,14 @@
+.episodeList{
+    display: flex;
+   flex-wrap: wrap;
+}
+.pageNumber{
+    margin: auto;
+    text-align: center;
+    padding: 10px;
+}
+.movementButtons{
+    margin: auto;
+    text-align: center;
+    padding: 10px;
+}
