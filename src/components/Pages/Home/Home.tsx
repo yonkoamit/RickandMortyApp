@@ -56,7 +56,9 @@ const Home = () => {
         <>
         <div className='home'>
            <h1>Watch Now</h1>
-           <EpisodeAtTop id="1"/>
+           <Link to='/episodes/1' style={{textDecoration:'none',color:'black'}}>
+                <EpisodeAtTop id="1"/>
+           </Link>
            <div className='maincontent'>
                 <div className='episodePanel'>
                     <h2>Episodes</h2>
