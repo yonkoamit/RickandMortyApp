@@ -1,35 +1,18 @@
-import { useQuery } from '@apollo/client';
-import gql from 'graphql-tag';
+import { Toolbar } from '@material-ui/core';
 import { useParams } from 'react-router';
+import CharacterDetailsHook from '../../../Hooks/CharacterDetailsHook';
+import CharacterDetailsLoader from '../../../loaders/CharacterDetailsLoader';
 import './CharacterDetails.css'
-function getCharacter(id:string)
-{
-    return gql`
-    {
-        character(id:${id})
-        {   id
-            name
-            gender
-            image
-            species
-            status
-            origin{
-              name
-              dimension
-              type
-            }
-        }
-    }
-    `
-}
+
 function CharacterDetails() {
 
     const {id}=useParams<{id:string}>();
-    const {loading,error,data}=useQuery(getCharacter(id));
-    if(loading) return <div className='loading'>Loading</div>;
+    const {loading,error,data}=CharacterDetailsHook(id);
+    if(loading) return <CharacterDetailsLoader/>
     if(error) return <div className='error'>Oops! Some Error Occured</div>
     return (
         <>
+        <Toolbar/>
         <h1 className='characterHeading'>{data.character.name}</h1>
         <div className='characterDetails'>
             <img src={data.character.image}/>

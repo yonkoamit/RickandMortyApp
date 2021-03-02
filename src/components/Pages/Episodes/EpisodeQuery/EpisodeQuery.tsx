@@ -1,49 +1,16 @@
 import React from 'react'
 import {Link} from 'react-router-dom';
-import gql from 'graphql-tag';
-import { useQuery } from '@apollo/client';
 import Episode from '../../../Card/Episode/Episode';
 import './EpisodeQuery.css';
-import {EpisodeQueryprops,EpisodeType,EpisodeList} from '../../../../types';
-
-function getEpisodes(a:number,b:string){
-    return gql`
-    query getEpisodes{
-        episodes(page: ${a},filter:{name:"${b}"}){
-            info{
-                count
-                pages
-                next
-                prev
-            }
-            results{
-              id
-              name
-              air_date
-              episode
-              characters{
-                id
-              }
-            }
-          }
-        }
-`
-}
+import {EpisodeQueryprops,EpisodeType} from '../../../../types';
+import EpisodeQueryHook from '../../../../Hooks/EpisodeQueryHook';
+import EpisodeQueryLoader from '../../../../loaders/EpisodeQueryLoader';
 
 function EpisodeQuery({episodeSearch,onClickHandler,page}:EpisodeQueryprops) {
 
-    const {loading,error,data}=useQuery(getEpisodes(page,episodeSearch));
-    if(loading) return <div className='loading'>Loading ...</div>
+    const {loading,error,episodeList,info}=EpisodeQueryHook(page,episodeSearch);
+    if(loading) return <EpisodeQueryLoader/>
     if(error) return <div className='error'>Oops! Not Found</div>
-    const info=data.episodes.info;
-    const episodeArray=data.episodes.results;
-    const episodeList=episodeArray.map((val:EpisodeList)=>({
-        id:val.id,
-        name:val.name,
-        air_date:val.air_date,
-        episode:val.episode,
-        char_count:val.characters.length
-    }));
     let buttons=<div></div>;
     if(info.next && info.prev)
         {   buttons=<div className='movementButtons'>
@@ -71,11 +38,11 @@ function EpisodeQuery({episodeSearch,onClickHandler,page}:EpisodeQueryprops) {
     }
     return (
         <div>
-                <div className='episodeList'>
+            <div className='episodeList'>
                     {
                         episodeList.map((val:EpisodeType)=>(
-                            <Link to={`/episodes/${val.id}`} style={{textDecoration:'none',color:'black'}}>
-                                <Episode key={val.id} episodeItems={val}/>
+                            <Link key={val.id} to={`/episodes/${val.id}`} style={{textDecoration:'none',color:'black'}}>
+                                <Episode  episodeItems={val}/>
                             </Link>
                         ))
                     }

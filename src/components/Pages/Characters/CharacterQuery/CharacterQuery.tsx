@@ -1,40 +1,14 @@
 import React from 'react'
-import gql from 'graphql-tag';
-import { useQuery } from '@apollo/client';
 import Character from '../../../Card/Character/Character';
 import {Link} from 'react-router-dom';
 import {CharacterType,CharacterQueryProps} from '../../../../types';
-
-function getCharacters(a:number,b:string){
-    return gql`
-    query getCharacters{
-        characters(page: ${a},filter:{name:"${b}"}){
-            info{
-                pages
-                next
-                prev
-            }
-            results{
-                id
-                name
-                gender
-                image
-                species
-            }
-          }
-        }
-`
-}
-
-
+import CharacterQueryHook from '../../../../Hooks/CharacterQueryHook';
+import CharacterQueryLoader from '../../../../loaders/CharacterQueryLoader';
 
 function CharacterQuery({characterSearch,onClickHandler,page}:CharacterQueryProps) {
-    
-    const {loading,error,data}=useQuery(getCharacters(page,characterSearch))
-    if(loading) return <div className='loading'>Loading ...</div>
+    const {loading,error,charactersList,info}=CharacterQueryHook(page,characterSearch);
+    if(loading) return <CharacterQueryLoader/>
     if(error) return <div className='error'>Oops! Not Found</div>
-    const info=data.characters.info;
-    const charactersList=data.characters.results;
     
 
     let buttons=<div></div>;

@@ -1,3 +1,4 @@
+import { Toolbar } from '@material-ui/core';
 import React, { useState } from 'react'
 import EpisodeQuery from './EpisodeQuery/EpisodeQuery';
 import './Episodes.css'
@@ -13,6 +14,7 @@ const Episodes = () => {
 
     return (
         <>
+        <Toolbar/>
         <div className='episodes'>
             <div className='episodeSearch'>
                 <h2>Episodes</h2>

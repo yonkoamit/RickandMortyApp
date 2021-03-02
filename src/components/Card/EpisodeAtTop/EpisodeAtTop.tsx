@@ -5,6 +5,7 @@ import image2 from '../../../dumbEasier.jpg';
 import image1 from '../../../episodePaper.png';
 import './EpisodeAtTop.css'
 import {EpisodeAtTopType} from '../../../types';
+import EpisodeAtTopLoader from '../../../loaders/EpisodeAtTopLoader';
 
 function getSingleEpisode(id:string)
   { return gql`{
@@ -21,11 +22,10 @@ function getSingleEpisode(id:string)
 
 const EpisodeAtTop = ({id}:EpisodeAtTopType) => {
     const {loading,error,data}=useQuery(getSingleEpisode(id));
-    if(loading) return <div className='loading'>Loading ...</div>
+    if(loading) return <EpisodeAtTopLoader/>
     if(error) return <div className='error'>Error ...</div>
 
     const episodePaper=parseInt(id)%2!==0 ? image1: image2;
-    console.log(episodePaper);
     return (
         <div className='episodeAtTop' style={{backgroundImage:`url(${episodePaper})`}} >
             <h2>{data.episode.episode}</h2>

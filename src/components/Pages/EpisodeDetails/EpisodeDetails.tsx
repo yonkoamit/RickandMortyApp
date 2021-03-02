@@ -1,12 +1,14 @@
 import React from 'react'
 import { useParams } from 'react-router'
 import gql from 'graphql-tag';
-import { useQuery } from '@apollo/client';
 import Starring from '../../Card/Starring/Starring';
 import './EpisodeDetails.css'
 import EpisodeAtTop from '../../Card/EpisodeAtTop/EpisodeAtTop';
 import {Link} from 'react-router-dom';
 import {starringListType} from '../../../types';
+import EpisodeDetailsQuery from '../../../Hooks/EpisodeDetailsQuery';
+import { Toolbar } from '@material-ui/core';
+import EpisodeDetailsLoader from '../../../loaders/EpisodeDetailsLoader';
 function getEpisode(a:string)
 {
     return gql`
@@ -25,14 +27,12 @@ function getEpisode(a:string)
 
 function EpisodeDetails() {
     const {id}=useParams<{id:string}>();
-
-    const {loading,error,data}=useQuery(getEpisode(id))
-    if(loading) return <div className='loading'>Loading ...</div>
+    const {loading,error,starringList}=EpisodeDetailsQuery(id);
+    if(loading) return <EpisodeDetailsLoader/>
     if(error) return <div className='error'>Oops! Not Found</div>
-    const starringList=data.episode.characters;
-    console.log(starringList);
     return (
         <>
+        <Toolbar/>
         <div className="episodeDetails">
             <EpisodeAtTop id={id}/>
             <h1>Starring</h1>

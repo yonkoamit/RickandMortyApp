@@ -1,3 +1,4 @@
+import { Toolbar } from '@material-ui/core';
 import React, { useState } from 'react'
 import CharacterQuery from './CharacterQuery/CharacterQuery';
 import './Characters.css'
@@ -10,6 +11,7 @@ const Characters = () => {
 
     return (
         <>
+        <Toolbar/>
         <div className='characters'>
             <div className='characterSearch'>
                 <h2>Characters</h2>
